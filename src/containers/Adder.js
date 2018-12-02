@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 
-export default class Table extends Component {
-
+export default class Adder extends Component {
+    
     render() {
         return (
             <div>
-                Table
+                Adder
             </div>
         );
     }

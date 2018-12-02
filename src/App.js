@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import Adder from './containers/Adder';
 import Table from './containers/Table';
 
 export default class App extends Component {
   render() {
     return (
-      <Table></Table>
+      <div>
+        <Adder />
+        <Table />
+      </div>
     );
   }
 }
