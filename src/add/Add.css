@@ -1,0 +1,14 @@
+#adder {
+    text-align: center;
+}
+
+#adder input{
+    color: rgb(90, 0, 0);
+    padding: 2px;
+    padding-left: 4px;
+    width: 100px;
+}
+
+#adder input::placeholder {
+    color: rgb(196, 164, 164);
+}
