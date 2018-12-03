@@ -1,14 +1,27 @@
-#adder {
+#add {
     text-align: center;
 }
 
-#adder input{
+#add input{
     color: rgb(90, 0, 0);
     padding: 2px;
     padding-left: 4px;
     width: 100px;
 }
 
-#adder input::placeholder {
+#add input::placeholder {
     color: rgb(196, 164, 164);
+}
+
+#add table, #add table th{
+    border-collapse: collapse;
+}
+
+#add table th {
+    padding: 0px;
+    border: 1px solid rgb(90, 0, 0);
+}
+
+#add table{
+    margin: auto;
 }

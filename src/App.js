@@ -9,6 +9,7 @@ export default class App extends Component {
       <div>
         <h2 id="title">Cars</h2>
         <Add />
+        <br />
         <Table />
       </div>
     );
