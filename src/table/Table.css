@@ -27,3 +27,24 @@
 #carsTable td {
     padding: 0px;
 }
+
+.removeCar {
+    padding-left: 4px;
+    position: relative;
+    top: 2px;
+    height: 18px;
+}
+
+.removeCar:hover {
+    cursor: pointer;
+}
+
+.head {
+    display: inline-block;
+}
+
+.sort {
+    height: 11px;
+    padding-left: 3px;
+    cursor: pointer;
+}

@@ -25,3 +25,14 @@
 #add table{
     margin: auto;
 }
+
+#addCar {
+    padding-left: 4px;
+    position: relative;
+    top: 2px;
+    height: 18px;
+}
+
+#addCar:hover {
+    cursor: pointer;
+}
