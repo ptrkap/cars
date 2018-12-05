@@ -1,18 +1,49 @@
 import React, {Component} from 'react';
 import './Table.css';
 import sortIcon from './sort.png';
+import {connect} from 'react-redux';
+import axios from 'axios';
 
-export default class Table extends Component {
+class Table extends Component {
+
+    componentWillMount() {
+        let that = this;
+        axios.get('get')
+            .then(function(response){
+                that.props.updateCars(response.data);
+            });
+    }
 
     sort(entity) {
         console.log(entity);
     }
 
-    remove(i) {
-        console.log(i);
+    remove(id) {
+        let that = this;
+        axios.delete('remove', {headers: {id}})
+            .then(function() {
+                axios.get('get')
+                    .then(function(response){
+                        that.props.updateCars(response.data);
+                    });
+            });
     } 
     
     render() {
+        let that = this;
+        const cars = this.props.cars.map(function(car) {
+            return (
+                <tr>
+                    <td><input value={car.brand} /></td>
+                    <td><input value={car.model} /></td>
+                    <td><input value={car.power} /></td>
+                    <td><input value={car.year} /></td>
+                    <td><input value={car.price} /></td>
+                    <td><img className="removeCar" src={require('./subtract.png')} alt="removeCar" onClick={that.remove.bind(that, car.id)} /></td>
+                </tr>
+            );
+        });
+
         return (
             <table id="carsTable">
                 <thead>
@@ -22,36 +53,33 @@ export default class Table extends Component {
                         <th><div className="head">Power</div><img className="sort" src={sortIcon} alt="sort" onClick={this.sort.bind(this, "power")} /></th>
                         <th><div className="head">Year</div><img className="sort" src={sortIcon} alt="sort" onClick={this.sort.bind(this, "year")} /></th>
                         <th><div className="head">Price</div><img className="sort" src={sortIcon} alt="sort" onClick={this.sort.bind(this, "price")} /></th>
+                        <th id="emptyBox"></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><input value="brand1" /></td>
-                        <td><input value="model1" /></td>
-                        <td><input value="power1" /></td>
-                        <td><input value="year1" /></td>
-                        <td><input value="price1" /></td>
-                        <td><img className="removeCar" src={require('./subtract.png')} alt="removeCar" onClick={this.remove.bind(this, 0)} /></td>
-                    </tr>
-                    <tr>
-                        <td><input value="brand2" /></td>
-                        <td><input value="model2" /></td>
-                        <td><input value="power2" /></td>
-                        <td><input value="year2" /></td>
-                        <td><input value="price2" /></td>
-                        <td><img className="removeCar" src={require('./subtract.png')} alt="removeCar" onClick={this.remove.bind(this, 1)} /></td>
-                    </tr>
-                    <tr>
-                        <td><input value="brand3" /></td>
-                        <td><input value="model3" /></td>
-                        <td><input value="power3" /></td>
-                        <td><input value="year3" /></td>
-                        <td><input value="price3" /></td>
-                        <td><img className="removeCar" src={require('./subtract.png')} alt="removeCar" onClick={this.remove.bind(this, 2)} /></td>
-                    </tr>
+                    {cars}
                 </tbody>
             </table>
         
         );
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        cars: state
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        updateCars: function(cars) {
+            return dispatch({
+                type: "UPDATE_CARS",
+                cars: cars
+            });
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Table);
