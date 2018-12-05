@@ -27,18 +27,25 @@ class Table extends Component {
                         that.props.updateCars(response.data);
                     });
             });
-    } 
+    }
+
+    onChange(property, id) {
+        const value = document.getElementById(property + id).value;
+        axios.put("update", {}, {
+            headers: {id, property, value}
+        });
+    }
     
     render() {
         let that = this;
         const cars = this.props.cars.map(function(car) {
             return (
-                <tr>
-                    <td><input value={car.brand} /></td>
-                    <td><input value={car.model} /></td>
-                    <td><input value={car.power} /></td>
-                    <td><input value={car.year} /></td>
-                    <td><input value={car.price} /></td>
+                <tr key={car.id}>
+                    <td><input id={"brand" + car.id} defaultValue={car.brand} onChange={that.onChange.bind(that, "brand", car.id)} /></td>
+                    <td><input id={"model" + car.id} defaultValue={car.model} onChange={that.onChange.bind(that, "model", car.id)} /></td>
+                    <td><input id={"power" + car.id} defaultValue={car.power} onChange={that.onChange.bind(that, "power", car.id)} /></td>
+                    <td><input id={"year" + car.id} defaultValue={car.year} onChange={that.onChange.bind(that, "year", car.id)} /></td>
+                    <td><input id={"price" + car.id} defaultValue={car.price} onChange={that.onChange.bind(that, "price", car.id)} /></td>
                     <td><img className="removeCar" src={require('./subtract.png')} alt="removeCar" onClick={that.remove.bind(that, car.id)} /></td>
                 </tr>
             );

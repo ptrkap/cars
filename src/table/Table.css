@@ -21,6 +21,10 @@
     border: 2px solid rgb(226, 198, 198);
 }
 
+#carsTable td input:focus {
+    background-color: white;
+}
+
 #carsTable, #carsTable th, #carsTable td {
     border: 1px solid rgb(90, 0, 0);
 }
