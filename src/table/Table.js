@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import './Table.css';
+import sortIcon from './sort.png';
 
 export default class Table extends Component {
-
-    sortIcon = require('./sort.png');
 
     sort(entity) {
         console.log(entity);
@@ -18,11 +17,11 @@ export default class Table extends Component {
             <table id="carsTable">
                 <thead>
                     <tr>
-                        <th><div className="head">Brand</div><img className="sort" src={this.sortIcon} alt="sort" onClick={this.sort.bind(this, "brand")} /></th>
-                        <th><div className="head">Model</div><img className="sort" src={this.sortIcon} alt="sort" onClick={this.sort.bind(this, "model")} /></th>
-                        <th><div className="head">Power</div><img className="sort" src={this.sortIcon} alt="sort" onClick={this.sort.bind(this, "power")} /></th>
-                        <th><div className="head">Year</div><img className="sort" src={this.sortIcon} alt="sort" onClick={this.sort.bind(this, "year")} /></th>
-                        <th><div className="head">Price</div><img className="sort" src={this.sortIcon} alt="sort" onClick={this.sort.bind(this, "price")} /></th>
+                        <th><div className="head">Brand</div><img className="sort" src={sortIcon} alt="sort" onClick={this.sort.bind(this, "brand")} /></th>
+                        <th><div className="head">Model</div><img className="sort" src={sortIcon} alt="sort" onClick={this.sort.bind(this, "model")} /></th>
+                        <th><div className="head">Power</div><img className="sort" src={sortIcon} alt="sort" onClick={this.sort.bind(this, "power")} /></th>
+                        <th><div className="head">Year</div><img className="sort" src={sortIcon} alt="sort" onClick={this.sort.bind(this, "year")} /></th>
+                        <th><div className="head">Price</div><img className="sort" src={sortIcon} alt="sort" onClick={this.sort.bind(this, "price")} /></th>
                     </tr>
                 </thead>
                 <tbody>
