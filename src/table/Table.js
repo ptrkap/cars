@@ -29,11 +29,39 @@ class Table extends Component {
             });
     }
 
-    onChange(property, id) {
-        const value = document.getElementById(property + id).value;
-        axios.put("update", {}, {
-            headers: {id, property, value}
-        });
+    onChange(property, id, check) {
+        const element = document.getElementById(property + id);
+        let value;
+        if (check(element.value)) {
+            value = element.value;
+        } else {
+            value = element.defaultValue;
+        }
+
+        element.value = value;
+        if (value.length > 0) {
+            axios.put("update", {}, {
+                headers: {id, property, value}
+            });
+        } else if (isNaN(element.defaultValue)){
+            element.placeholder = "Provide content";
+        } else if (!isNaN(element.defaultValue)){
+            element.placeholder = "Provide number";
+        }
+        
+        let that = this;
+        axios.get('get')
+            .then(function(response){
+                that.props.updateCars(response.data);
+            });
+    }
+
+    checkIfNumber(value) {
+        return /^[0-9]*$/.test(value);
+    }
+
+    checkIfNotNumber(value) {
+        return /^[a-zA-Z]*$/.test(value);
     }
     
     render() {
@@ -41,11 +69,11 @@ class Table extends Component {
         const cars = this.props.cars.map(function(car) {
             return (
                 <tr key={car.id}>
-                    <td><input id={"brand" + car.id} defaultValue={car.brand} onChange={that.onChange.bind(that, "brand", car.id)} /></td>
-                    <td><input id={"model" + car.id} defaultValue={car.model} onChange={that.onChange.bind(that, "model", car.id)} /></td>
-                    <td><input id={"power" + car.id} defaultValue={car.power} onChange={that.onChange.bind(that, "power", car.id)} /></td>
-                    <td><input id={"year" + car.id} defaultValue={car.year} onChange={that.onChange.bind(that, "year", car.id)} /></td>
-                    <td><input id={"price" + car.id} defaultValue={car.price} onChange={that.onChange.bind(that, "price", car.id)} /></td>
+                    <td><input id={"brand" + car.id} defaultValue={car.brand} onChange={that.onChange.bind(that, "brand", car.id, that.checkIfNotNumber.bind(that))} /></td>
+                    <td><input id={"model" + car.id} defaultValue={car.model} onChange={that.onChange.bind(that, "model", car.id, that.checkIfNotNumber.bind(that))} /></td>
+                    <td><input id={"power" + car.id} defaultValue={car.power} onChange={that.onChange.bind(that, "power", car.id, that.checkIfNumber.bind(that))} /></td>
+                    <td><input id={"year" + car.id} defaultValue={car.year} onChange={that.onChange.bind(that, "year", car.id, that.checkIfNumber.bind(that))} /></td>
+                    <td><input id={"price" + car.id} defaultValue={car.price} onChange={that.onChange.bind(that, "price", car.id, that.checkIfNumber.bind(that))} /></td>
                     <td><img className="removeCar" src={require('./subtract.png')} alt="removeCar" onClick={that.remove.bind(that, car.id)} /></td>
                 </tr>
             );
