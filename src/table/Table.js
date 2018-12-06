@@ -14,8 +14,44 @@ class Table extends Component {
             });
     }
 
-    sort(entity) {
-        console.log(entity);
+    sort(pickedSortEntity) {
+        let storedSortEntity = localStorage.getItem("sort");
+        if (pickedSortEntity === "brand") {
+            if (storedSortEntity === "brand asc") {
+                localStorage.setItem("sort", "brand desc");
+            } else {
+                localStorage.setItem("sort", "brand asc");
+            }
+        } else if (pickedSortEntity === "model") {
+            if (storedSortEntity === "model asc") {
+                localStorage.setItem("sort", "model desc");
+            } else {
+                localStorage.setItem("sort", "model asc");
+            }
+        } else if (pickedSortEntity === "power") {
+            if (storedSortEntity === "power asc") {
+                localStorage.setItem("sort", "power desc");
+            } else {
+                localStorage.setItem("sort", "power asc");
+            }
+        } else if (pickedSortEntity === "year") {
+            if (storedSortEntity === "year asc") {
+                localStorage.setItem("sort", "year desc");
+            } else {
+                localStorage.setItem("sort", "year asc");
+            }
+        } else if (pickedSortEntity === "price") {
+            if (storedSortEntity === "price asc") {
+                localStorage.setItem("sort", "price desc");
+            } else {
+                localStorage.setItem("sort", "price asc");
+            }
+        }
+        let that = this;
+        axios.get('get')
+            .then(function(response){
+                that.props.updateCars(response.data);
+            });
     }
 
     remove(id) {
