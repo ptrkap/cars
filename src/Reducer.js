@@ -59,10 +59,10 @@ function sortByBrandAsc(cars) {
 function sortByBrandDesc(cars) {
   cars.sort((a, b) => {
     return compareBrandDesc(a, b, 
-      compareModelAsc(a, b, 
-        comparePowerAsc(a, b, 
-          compareYearAsc(a, b, 
-            comparePriceAsc(a, b,
+      compareModelDesc(a, b, 
+        comparePowerDesc(a, b, 
+          compareYearDesc(a, b, 
+            comparePriceDesc(a, b,
               stub())))));
   });
 }
@@ -81,10 +81,10 @@ function sortByModelAsc(cars) {
 function sortByModelDesc(cars) {
   cars.sort((a, b) => {
     return compareModelDesc(a, b, 
-      compareBrandAsc(a, b, 
-        comparePowerAsc(a, b, 
-          compareYearAsc(a, b, 
-            comparePriceAsc(a, b,
+      compareBrandDesc(a, b, 
+        comparePowerDesc(a, b, 
+          compareYearDesc(a, b, 
+            comparePriceDesc(a, b,
               stub())))));
   });
 }
@@ -103,10 +103,10 @@ function sortByPowerAsc(cars) {
 function sortByPowerDesc(cars) {
   cars.sort((a, b) => {
     return comparePowerDesc(a, b, 
-      compareBrandAsc(a, b, 
-        compareModelAsc(a, b, 
-          compareYearAsc(a, b, 
-            comparePriceAsc(a, b,
+      compareBrandDesc(a, b, 
+        compareModelDesc(a, b, 
+          compareYearDesc(a, b, 
+            comparePriceDesc(a, b,
               stub())))));
   });
 }
@@ -125,10 +125,10 @@ function sortByYearAsc(cars) {
 function sortByYearDesc(cars) {
   cars.sort((a, b) => {
     return compareYearDesc(a, b,
-      compareBrandAsc(a, b, 
-        compareModelAsc(a, b, 
-          comparePowerAsc(a, b, 
-            comparePriceAsc(a, b,
+      compareBrandDesc(a, b, 
+        compareModelDesc(a, b, 
+          comparePowerDesc(a, b, 
+            comparePriceDesc(a, b,
               stub())))));
   });
 }
@@ -147,10 +147,10 @@ function sortByPriceAsc(cars) {
 function sortByPriceDesc(cars) {
   cars.sort((a, b) => {
     return comparePriceDesc(a, b,
-      compareBrandAsc(a, b, 
-        compareModelAsc(a, b, 
-          comparePowerAsc(a, b, 
-            compareYearAsc(a, b, 
+      compareBrandDesc(a, b, 
+        compareModelDesc(a, b, 
+          comparePowerDesc(a, b, 
+            compareYearDesc(a, b, 
               stub())))));
   });
 }
