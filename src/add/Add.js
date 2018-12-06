@@ -29,17 +29,23 @@ class Add extends Component {
             });
     }
 
+    onKeyUp(e) {
+        if (e.keyCode === 13) {
+            this.add();
+        }
+    }
+
     render() {
         return (
             <div id="add">
                 <table>
                     <thead>
                         <tr>
-                            <th><input id="brandInput" placeholder="Brand" /></th>
-                            <th><input id="modelInput"  placeholder="Model" /></th>
-                            <th><input id="powerInput"  placeholder="Power" /></th>
-                            <th><input id="yearInput"  placeholder="Year" /></th>
-                            <th><input id="priceInput"  placeholder="Price" /></th>
+                            <th><input id="brandInput" placeholder="Brand" onKeyUp={this.onKeyUp.bind(this)}/></th>
+                            <th><input id="modelInput"  placeholder="Model" onKeyUp={this.onKeyUp.bind(this)} /></th>
+                            <th><input id="powerInput"  placeholder="Power" onKeyUp={this.onKeyUp.bind(this)} /></th>
+                            <th><input id="yearInput"  placeholder="Year" onKeyUp={this.onKeyUp.bind(this)} /></th>
+                            <th><input id="priceInput"  placeholder="Price" onKeyUp={this.onKeyUp.bind(this)} /></th>
                             <th><img className="removeCar" src={require('./add.png')} alt="removeCar" onClick={this.add.bind(this)}/></th>
                         </tr>
                     </thead>
