@@ -6,7 +6,6 @@ export default function(state = [], action) {
         localStorage.setItem("sort", "brand asc");
       }
       let cars = [...action.cars];
-      console.log(localStorage.getItem("sort"));
       switch(localStorage.getItem("sort")){
         case "brand asc":
           sortByBrandAsc(cars);
