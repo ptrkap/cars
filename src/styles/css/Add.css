@@ -1,38 +1,32 @@
 #add {
-    text-align: center;
+  text-align: center;
 }
-
-#add input{
-    color: rgb(90, 0, 0);
-    padding: 2px;
-    padding-left: 4px;
-    width: 100px;
+#add input {
+  color: #5a0000;
+  padding: 2px;
+  padding-left: 4px;
+  width: 100px;
 }
-
 #add input::placeholder {
-    color: rgb(196, 164, 164);
+  color: #c4a4a4;
 }
-
-#add table, #add table th{
-    border-collapse: collapse;
-}
-
+#add table,
 #add table th {
-    padding: 0px;
-    border: 1px solid rgb(90, 0, 0);
+  border-collapse: collapse;
 }
-
-#add table{
-    margin: auto;
+#add table th {
+  padding: 0px;
+  border: 1px solid #5a0000;
 }
-
+#add table {
+  margin: auto;
+}
 #addCar {
-    padding-left: 4px;
-    position: relative;
-    top: 2px;
-    height: 18px;
+  padding-left: 4px;
+  position: relative;
+  top: 2px;
+  height: 18px;
 }
-
 #addCar:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
