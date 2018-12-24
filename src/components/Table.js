@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import './Table.css';
-import sortIcon from './sort.png';
+import '../styles/css/Table.css';
+import sortIcon from '../images/sort.png';
+import subtractIcon from '../images/subtract.png';
 import {connect} from 'react-redux';
 import axios from 'axios';
 
@@ -110,7 +111,7 @@ class Table extends Component {
                     <td><input id={"power" + car.id} defaultValue={car.power} onChange={that.onChange.bind(that, "power", car.id, that.checkIfNumber.bind(that))} /></td>
                     <td><input id={"year" + car.id} defaultValue={car.year} onChange={that.onChange.bind(that, "year", car.id, that.checkIfNumber.bind(that))} /></td>
                     <td><input id={"price" + car.id} defaultValue={car.price} onChange={that.onChange.bind(that, "price", car.id, that.checkIfNumber.bind(that))} /></td>
-                    <td><img className="removeCar" src={require('./subtract.png')} alt="removeCar" onClick={that.remove.bind(that, car.id)} /></td>
+                    <td><img className="removeCar" src={subtractIcon} alt="removeCar" onClick={that.remove.bind(that, car.id)} /></td>
                 </tr>
             );
         });

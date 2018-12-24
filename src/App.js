@@ -1,7 +1,7 @@
 import React from 'react';
-import Add from './add/Add';
-import Table from './table/Table';
-import './App.css';
+import Add from './components/Add';
+import Table from './components/Table';
+import './styles/css/App.css';
 
 export default function(){
   return (

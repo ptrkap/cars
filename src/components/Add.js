@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import './Add.css';
+import '../styles/css/Add.css';
+import addIcon from '../images/add.png';
 import axios from 'axios';
 
 class Add extends Component {
@@ -46,7 +47,7 @@ class Add extends Component {
                             <th><input id="powerInput"  placeholder="Power" onKeyUp={this.onKeyUp.bind(this)} /></th>
                             <th><input id="yearInput"  placeholder="Year" onKeyUp={this.onKeyUp.bind(this)} /></th>
                             <th><input id="priceInput"  placeholder="Price" onKeyUp={this.onKeyUp.bind(this)} /></th>
-                            <th><img className="removeCar" src={require('./add.png')} alt="removeCar" onClick={this.add.bind(this)}/></th>
+                            <th><img className="removeCar" src={addIcon} alt="removeCar" onClick={this.add.bind(this)}/></th>
                         </tr>
                     </thead>
                 </table>

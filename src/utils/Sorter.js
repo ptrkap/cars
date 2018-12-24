@@ -36,6 +36,7 @@ export default class Sorter {
       case "price desc":
         Sorter.sortByPriceDesc(cars);
         break;
+      default:
     }
   }
 

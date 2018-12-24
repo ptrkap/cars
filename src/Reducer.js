@@ -1,4 +1,4 @@
-import Sorter from './table/Sorter';
+import Sorter from './utils/Sorter';
 
 export default function(state = [], action) {
   switch(action.type) {
