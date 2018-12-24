@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import style from './Add.less';
+import './Add.css';
 import axios from 'axios';
 
 class Add extends Component {
@@ -37,7 +37,7 @@ class Add extends Component {
 
     render() {
         return (
-            <div id={style.add}>
+            <div id="add">
                 <table>
                     <thead>
                         <tr>
