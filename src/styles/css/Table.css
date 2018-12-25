@@ -1,17 +1,23 @@
+#carsTable {
+  border-collapse: collapse;
+  margin: auto;
+  border: 1px solid #5a0000;
+}
 #carsTable input {
   color: #5a0000;
   padding: 2px;
   padding-left: 4px;
   width: 100px;
 }
-#carsTable {
-  border-collapse: collapse;
-  margin: auto;
-}
 #carsTable th {
+  border: 1px solid #5a0000;
   background-color: white;
   color: #5a0000;
   width: 108px;
+}
+#carsTable td {
+  border: 1px solid #5a0000;
+  padding: 0px;
 }
 #carsTable td input {
   background-color: #e2c6c6;
@@ -20,26 +26,18 @@
 #carsTable td input:focus {
   background-color: white;
 }
-#carsTable,
-#carsTable th,
-#carsTable td {
-  border: 1px solid #5a0000;
-}
-#carsTable td {
-  padding: 0px;
-}
 .removeCar {
   padding-left: 4px;
   position: relative;
   top: 2px;
   height: 18px;
 }
+.removeCar:hover {
+  cursor: pointer;
+}
 #emptyBox {
   width: 24px !important;
   background-color: #5a0000 !important;
-}
-.removeCar:hover {
-  cursor: pointer;
 }
 .head {
   display: inline-block;

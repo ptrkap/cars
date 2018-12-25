@@ -1,38 +1,38 @@
 @dark-red: rgb(90, 0, 0);
-
-#carsTable input{
-    color: @dark-red;
-    padding: 2px;
-    padding-left: 4px;
-    width: 100px;
-}
+@light-color: rgb(226, 198, 198);
 
 #carsTable {
     border-collapse: collapse;
     margin: auto;
-}
-
-#carsTable th {
-    background-color: white;
-    color: @dark-red;
-    width: 108px;
-}
-
-#carsTable td input{
-    background-color: rgb(226, 198, 198);
-    border: 2px solid rgb(226, 198, 198);
-}
-
-#carsTable td input:focus {
-    background-color: white;
-}
-
-#carsTable, #carsTable th, #carsTable td {
     border: 1px solid @dark-red;
-}
 
-#carsTable td {
-    padding: 0px;
+    input {
+        color: @dark-red;
+        padding: 2px;
+        padding-left: 4px;
+        width: 100px;
+    }
+
+    th {
+        border: 1px solid @dark-red;
+        background-color: white;
+        color: @dark-red;
+        width: 108px;
+    }
+
+    td {
+        border: 1px solid @dark-red;
+        padding: 0px;
+
+        input{
+            background-color: @light-color;
+            border: 2px solid @light-color;
+        }
+
+        input:focus {
+            background-color: white;
+        }
+    } 
 }
 
 .removeCar {
@@ -42,13 +42,13 @@
     height: 18px;
 }
 
+.removeCar:hover {
+    cursor: pointer;
+}
+
 #emptyBox {
     width: 24px !important;
     background-color: @dark-red !important;
-}
-
-.removeCar:hover {
-    cursor: pointer;
 }
 
 .head {
