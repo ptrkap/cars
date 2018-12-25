@@ -10,16 +10,14 @@
 #add input::placeholder {
   color: #c4a4a4;
 }
-#add table,
-#add table th {
+#add table {
   border-collapse: collapse;
+  margin: auto;
 }
 #add table th {
   padding: 0px;
   border: 1px solid #5a0000;
-}
-#add table {
-  margin: auto;
+  border-collapse: collapse;
 }
 #addCar {
   padding-left: 4px;
