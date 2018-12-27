@@ -6,14 +6,14 @@ import './config';
 describe('<Add />', () => {
   
   test('should display "Add" panel', () => {
-    let wrapper = shallow(<Add />);
+    const wrapper = shallow(<Add />);
     expect(wrapper.props().id).toBe("add");
     expect(wrapper.type()).toBe("div");
     expect(wrapper.childAt(0).type()).toBe("table");
     expect(wrapper.childAt(0).childAt(0).type()).toBe("thead");
     expect(wrapper.childAt(0).childAt(0).childAt(0).type()).toBe("tr");
     expect(wrapper.childAt(0).childAt(0).childAt(0).childAt(0).type()).toBe("th");
-    let th = wrapper.childAt(0).childAt(0).childAt(0);
+    const th = wrapper.childAt(0).childAt(0).childAt(0);
     expect(th.childAt(0).childAt(0).type()).toBe("input");
     expect(th.childAt(0).childAt(0).props().id).toBe("brandInput");
     expect(th.childAt(0).childAt(0).props().placeholder).toBe("Brand");

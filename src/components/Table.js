@@ -5,7 +5,7 @@ import subtractIcon from '../images/subtract.png';
 import {connect} from 'react-redux';
 import axios from 'axios';
 
-class Table extends Component {
+export class Table extends Component {
 
     componentWillMount() {
         let that = this;
