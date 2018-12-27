@@ -4,7 +4,7 @@ import '../styles/css/Add.css';
 import addIcon from '../images/add.png';
 import axios from 'axios';
 
-class Add extends Component {
+export class Add extends Component {
     
     add() {
         const brand = document.getElementById("brandInput").value;
